@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nabta Tex</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #F5F5DC;
+      color: #800020;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      height: 60px;
+      animation: floatLogo 2.5s ease-in-out infinite;
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: #2ECC71;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .lang-switch-inline button {
+      background-color: transparent;
+      border: 2px solid #800020;
+      color: #800020;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .lang-switch-inline button:hover {
+      background-color: #800020;
+      color: white;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero {
+      background-image: url('LOGO Ahmed.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-box {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 650px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    button {
+      background-color: #800020;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      overflow: hidden;
+      border-radius: 1rem;
+      animation: fadeZoom 1s ease forwards;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeZoom {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+    }
+
+    form button {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      background: #800020;
+      color: white;
+      padding: 1rem;
+    }
+
+    footer a {
+      color: #D4AF37;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+    } 
+    .social-icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.social-icons a {
+  background: white;
+  border-radius: 50%;
+  padding: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.social-icons a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Nabta Tex Logo">
+    <nav>
+      <a href="#about" id="nav-about">About</a>
+      <a href="#products" id="nav-products">Products</a>
+      <a href="#contact" id="nav-contact">Contact</a>
+      <span class="lang-switch-inline">
+        <button onclick="switchLang('en')">EN</button>
+        <button onclick="switchLang('ar')">AR</button>
+      </span>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-box">
+      <h2 id="hero-title">Luxury Fabrics, Timeless Style</h2>
+      <p id="hero-desc">Discover elegance with Nabta Tex’s premium fabric collections.</p>
+      <button id="hero-button">Explore Now</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <h3 id="about-title">About Us</h3>
+    <p id="about-text">We blend tradition with innovation to offer luxurious fabric collections.</p>
+  </section>
+
+  <section id="products" style="background:white;">
+    <h3 id="products-title">Our Products</h3>
+    <div class="product-grid">
+      <div class="product-card"><img src="" alt="Cotton"></div>
+      <div class="product-card"><img src="" alt="Silk"></div>
+      <div class="product-card"><img src="" alt="Wool"></div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:#f0f0f0;">
+  <h3 id="contact-title">Contact Us</h3>
+  <form
+    action="https://formspree.io/f/myzjlwwa"
+    method="POST"
+    onsubmit="alert('✅ شكراً لتواصلك! تم إرسال رسالتك بنجاح.');"
+  >
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+  <footer>
+  <p>Connect with us:</p>
+  <div class="social-icons">
+    <a href="https://wa.me/201147983300" target="_blank" title="WhatsApp">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+    <a href="https://instagram.com/nabta_tex" target="_blank" title="Instagram">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+    </a>
+    <a href="https://facebook.com/nabta_tex" target="_blank" title="Facebook">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+    </a>
+    <a href="https://twitter.com/nabta_tex" target="_blank" title="Twitter">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter">
+    </a>
+    <a href="https://tiktok.com/@nabta_tex" target="_blank" title="TikTok">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
+    </a>
+  </div>
+</footer>
+
+
+  <script>
+    const translations = {
+      en: {
+        "nav-about": "About",
+        "nav-products": "Products",
+        "nav-contact": "Contact",
+        "hero-title": "Luxury Fabrics, Timeless Style",
+        "hero-desc": "Discover elegance with Nabta Tex’s premium fabric collections.",
+        "hero-button": "Explore Now",
+        "about-title": "About Us",
+        "about-text": "We blend tradition with innovation to offer luxurious fabric collections.",
+        "products-title": "Our Products",
+        "contact-title": "Contact Us"
+      },
+      ar: {
+        "nav-about": "من نحن",
+        "nav-products": "المنتجات",
+        "nav-contact": "تواصل",
+        "hero-title": "أقمشة فاخرة، أناقة خالدة",
+        "hero-desc": "اكتشف الفخامة مع تشكيلات نبتة تكس المميزة.",
+        "hero-button": "استكشف الآن",
+        "about-title": "من نحن",
+        "about-text": "نمزج بين التقاليد والابتكار لنقدم مجموعات أقمشة فاخرة.",
+        "products-title": "منتجاتنا",
+        "contact-title": "تواصل معنا"
+      }
+    };
+
+    function switchLang(lang) {
+      for (const id in translations[lang]) {
+        document.getElementById(id).innerText = translations[lang][id];
+      }
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    }
+  </script>
+</body>
+</html>
