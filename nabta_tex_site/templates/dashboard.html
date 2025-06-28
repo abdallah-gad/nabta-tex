@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Add Product</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      padding: 2rem;
+    }
+    h2 {
+      text-align: center;
+      color: #800020;
+      margin-bottom: 2rem;
+    }
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #800020;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #a00028;
+    }
+    .product-preview {
+      margin: 3rem auto 1rem;
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      max-width: 900px;
+    }
+    .product-preview div {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+    .product-preview img {
+      max-width: 100%;
+      border-radius: 0.5rem;
+      height: 200px;
+      object-fit: cover;
+    }
+    .product-preview p {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #800020;
+    }
+    .delete-button {
+      background-color: crimson;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>🧵 Add New Product</h2>
+  <p style="text-align:right; padding: 1rem;"><a href="/logout" style="color:red; font-weight:bold;">🚪 Logout</a></p>
+
+  <form method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Product Title" required />
+    <input type="file" name="image" accept="image/*" required />
+    <button type="submit">Add Product</button>
+  </form>
+
+  {% if products %}
+  <h2 style="margin-top:3rem;">🧾 Existing Products</h2>
+  <div class="product-preview">
+    {% for p in products %}
+      <div>
+        <img src="{{ p.image }}" alt="{{ p.title }}">
+        <p>{{ p.title }}</p>
+        <form method="POST" action="{{ url_for('delete_product', index=loop.index0) }}">
+          <button type="submit" class="delete-button">🗑 Delete</button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</body>
+</html>
