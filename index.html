@@ -93,7 +93,7 @@
     <div class="hero-box">
       <h2 id="hero-title">Luxury Fabrics, Timeless Style</h2>
       <p id="hero-desc">Discover elegance with Nabta Tex’s premium fabric collections.</p>
-      <button id="hero-button">Explore Now</button>
+      <button id="hero-button" onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">Explore Now</button>
     </div>
   </section>
 
@@ -113,6 +113,7 @@
 
   <section id="products" style="background:white;">
     <h3 id="products-title">Our Products</h3>
+    <p id="products-count">Available Products: 3</p>
     <div class="product-grid" id="productContainer"></div>
   </section>
 
@@ -156,6 +157,7 @@
         "nav-about": "About", "nav-products": "Products", "nav-contact": "Contact",
         "hero-title": "Luxury Fabrics, Timeless Style", "hero-desc": "Discover elegance with Nabta Tex’s premium fabric collections.", "hero-button": "Explore Now",
         "about-title": "About Us", "about-text": "We blend tradition with innovation to offer luxurious fabric collections.", "products-title": "Our Products",
+        "products-count": "Available Products: 3",
         "features-title": "Why Nabta Tex?", "feature-1-title": "🌿 Natural Materials", "feature-1-text": "We use high-quality natural fabrics like cotton, silk, and wool.",
         "feature-2-title": "🎨 Custom Designs", "feature-2-text": "Tailor-made designs that match every client’s need.",
         "feature-3-title": "🚚 Fast Delivery", "feature-3-text": "We ensure prompt delivery across Egypt and GCC.",
@@ -167,6 +169,7 @@
         "nav-about": "من نحن", "nav-products": "المنتجات", "nav-contact": "تواصل",
         "hero-title": "أقمشة فاخرة، أناقة خالدة", "hero-desc": "اكتشف الفخامة مع تشكيلات نبتة تكس المميزة.", "hero-button": "استكشف الآن",
         "about-title": "من نحن", "about-text": "نمزج بين التقاليد والابتكار لنقدم مجموعات أقمشة فاخرة.", "products-title": "منتجاتنا",
+        "products-count": "عدد المنتجات المتاحة: 3",
         "features-title": "لماذا نبتة تكس؟", "feature-1-title": "🌿 خامات طبيعية", "feature-1-text": "نستخدم أقمشة طبيعية عالية الجودة مثل القطن والحرير والصوف.",
         "feature-2-title": "🎨 تصميمات مخصصة", "feature-2-text": "نقدم تصميمات مخصصة تناسب كل عميل وذوقه.",
         "feature-3-title": "🚚 توصيل سريع", "feature-3-text": "نضمن توصيلًا سريعًا داخل مصر ودول الخليج.",
@@ -186,7 +189,6 @@
       document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
       localStorage.setItem("lang", lang);
 
-      // تعديل الحقول
       document.querySelector('input[name="name"]').placeholder = lang === "ar" ? "اسمك" : "Your Name";
       document.querySelector('input[name="email"]').placeholder = lang === "ar" ? "بريدك الإلكتروني" : "Your Email";
       document.querySelector('textarea[name="message"]').placeholder = lang === "ar" ? "رسالتك" : "Your Message";
