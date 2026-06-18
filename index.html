@@ -13,19 +13,295 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #F5F5DC; color: #800020; }
-    header { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); flex-wrap: wrap; }
-    header img { height: 60px; animation: floatLogo 2.5s ease-in-out infinite; }
-    @keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-    nav { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-    nav a { color: #2ECC71; font-weight: bold; text-decoration: none; }
-    .lang-switch-inline button { background: transparent; border: 2px solid #800020; color: #800020; padding: 0.3rem 0.8rem; border-radius: 6px; cursor: pointer; font-weight: bold; }
-    .lang-switch-inline button:hover { background: #800020; color: white; }
-    .hero { background: url('static/hero.jpg') center/cover no-repeat; height: 80vh; display: flex; align-items: center; justify-content: center; }
-    .hero-box { background: rgba(255,255,255,0.85); padding: 2rem; border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); text-align: center; max-width: 650px; }
-    .hero-box button { background-color: #800020; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; }
+    body { 
+      font-family: 'Segoe UI', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #F5F5DC; 
+      color: #800020; 
+    }
+    
+    /* ================= HEADER - مستوحى من A.D.Gad ================= */
+    header { 
+      background: #ffffff; 
+      padding: 0.5rem 2.5rem; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      box-shadow: 0 2px 15px rgba(128, 0, 32, 0.12); 
+      flex-wrap: wrap; 
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid rgba(128, 0, 32, 0.1);
+      min-height: 70px;
+      transition: all 0.3s ease;
+    }
+    
+    header .logo { 
+      display: flex; 
+      align-items: center; 
+      gap: 12px;
+    }
+    
+    header .logo img { 
+      height: 50px; 
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    header .logo img:hover {
+      transform: scale(1.05);
+    }
+    
+    header .logo .brand-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #800020;
+      letter-spacing: 0.5px;
+    }
+    
+    header .logo .brand-name span {
+      color: #2ECC71;
+    }
+    
+    nav { 
+      display: flex; 
+      align-items: center; 
+      gap: 2rem; 
+      flex-wrap: wrap; 
+    }
+    
+    nav a { 
+      color: #333; 
+      font-weight: 500; 
+      text-decoration: none; 
+      font-size: 0.95rem;
+      padding: 0.5rem 0.2rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #800020;
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #800020;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .lang-switch-inline { 
+      display: flex; 
+      gap: 5px; 
+      align-items: center;
+      background: rgba(128, 0, 32, 0.05);
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid rgba(128, 0, 32, 0.15);
+    }
+    
+    .lang-switch-inline button { 
+      background: transparent; 
+      border: none; 
+      color: #800020; 
+      padding: 0.3rem 0.9rem; 
+      border-radius: 6px; 
+      cursor: pointer; 
+      font-weight: 600; 
+      font-size: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    
+    .lang-switch-inline button:hover { 
+      background: rgba(128, 0, 32, 0.1); 
+    }
+    
+    .lang-switch-inline button.active {
+      background: #800020;
+      color: white;
+    }
+    
+    /* ================= HERO ================= */
+    .hero { 
+      background: url('static/hero.jpg') center/cover no-repeat; 
+      height: 80vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(128, 0, 32, 0.15);
+    }
+    
+    .hero-box { 
+      background: rgba(255,255,255,0.9); 
+      padding: 2.5rem 3rem; 
+      border-radius: 1rem; 
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2); 
+      text-align: center; 
+      max-width: 600px; 
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .hero-box h2 {
+      font-size: 2.2rem;
+      color: #800020;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-box p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-box button { 
+      background-color: #800020; 
+      color: white; 
+      padding: 0.8rem 2rem; 
+      border: none; 
+      border-radius: 30px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(128, 0, 32, 0.3);
+    }
+    
+    .hero-box button:hover {
+      background-color: #2ECC71;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+    }
+    
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 992px) {
+      header { 
+        padding: 0.5rem 1.5rem; 
+      }
+      
+      nav { 
+        gap: 1.2rem; 
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header { 
+        padding: 0.8rem 1.2rem; 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 0.8rem;
+        min-height: auto;
+      }
+      
+      header .logo {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      header .logo .brand-name {
+        font-size: 1.1rem;
+      }
+      
+      nav { 
+        flex-direction: column; 
+        width: 100%; 
+        gap: 0.5rem; 
+        align-items: stretch;
+      }
+      
+      nav a {
+        text-align: center;
+        padding: 0.6rem;
+        border-bottom: 1px solid rgba(128, 0, 32, 0.06);
+      }
+      
+      nav a::after {
+        display: none;
+      }
+      
+      nav a:hover {
+        background: rgba(128, 0, 32, 0.05);
+        border-radius: 8px;
+      }
+      
+      .lang-switch-inline {
+        justify-content: center;
+        padding: 5px;
+        margin-top: 0.5rem;
+      }
+      
+      .hero { 
+        height: 60vh; 
+      }
+      
+      .hero-box { 
+        padding: 1.5rem 1.8rem; 
+        margin: 0 1rem;
+      }
+      
+      .hero-box h2 {
+        font-size: 1.6rem;
+      }
+      
+      .hero-box p {
+        font-size: 0.95rem;
+      }
+      
+      .hero-box button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      header .logo img { 
+        height: 40px; 
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header { 
+        padding: 0.6rem 0.8rem; 
+      }
+      
+      header .logo .brand-name {
+        font-size: 0.95rem;
+      }
+      
+      header .logo img { 
+        height: 35px; 
+      }
+      
+      .hero-box h2 {
+        font-size: 1.3rem;
+      }
+      
+      .hero-box {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+    
+    /* ================= باقي التنسيقات ================= */
     section { padding: 3rem 2rem; text-align: center; }
-
+    
     .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
     .product-card {
       background: white;
@@ -55,35 +331,41 @@
       font-weight: bold;
       text-align: center;
     }
-
-    form input, form textarea { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 0.5rem; }
-    form button { width: 100%; margin-top: 1rem; background-color: #800020; color: white; padding: 0.75rem; border: none; border-radius: 8px; }
-    footer { text-align: center; background: #800020; color: white; padding: 1rem; }
+    
+    form input, form textarea { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 0.5rem; margin-bottom: 0.8rem; box-sizing: border-box; }
+    form button { width: 100%; margin-top: 0.5rem; background-color: #800020; color: white; padding: 0.75rem; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; }
+    form button:hover { background-color: #2ECC71; }
+    
+    footer { text-align: center; background: #800020; color: white; padding: 1.5rem; }
     .social-icons { margin-top: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .social-icons a { background: white; border-radius: 50%; padding: 0.6rem; display: inline-flex; align-items: center; justify-content: center; }
+    .social-icons a { background: white; border-radius: 50%; padding: 0.6rem; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
+    .social-icons a:hover { transform: scale(1.1); }
     .social-icons img { width: 24px; height: 24px; }
-    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
+    
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; z-index: 999; transition: transform 0.3s ease; }
+    .whatsapp-float:hover { transform: scale(1.1); }
     .whatsapp-float img { width: 60px; height: 60px; }
-
+    
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; }
-      nav { flex-direction: column; width: 100%; margin-top: 1rem; }
-      .hero { height: 60vh; text-align: center; }
-      .hero-box { padding: 1.5rem; }
-      .product-card img { height: 180px; }
+      section { padding: 2rem 1rem; }
       .product-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+      .product-card img { height: 180px; }
+      .whatsapp-float img { width: 50px; height: 50px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="static/logo.png" alt="Nabta Tex Logo">
+    <div class="logo">
+      <img src="static/logo.png" alt="Nabta Tex Logo">
+      <span class="brand-name">Nabta <span>Tex</span></span>
+    </div>
     <nav>
       <a href="#about" id="nav-about">About</a>
       <a href="#products" id="nav-products">Products</a>
       <a href="#contact" id="nav-contact">Contact</a>
       <span class="lang-switch-inline">
-        <button onclick="switchLang('en')">EN</button>
+        <button onclick="switchLang('en')" class="active">EN</button>
         <button onclick="switchLang('ar')">AR</button>
       </span>
     </nav>
@@ -144,9 +426,8 @@
       <a href="https://www.facebook.com/share/1CA1zW8VKt/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"></a>
       <a href="https://twitter.com/nabta_tex" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg"></a>
       <a href="https://tiktok.com/@nabta_tex" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"></a>
-       <a href="mailto:nabta.tex@gmail.com" target="_blank" title="Email"> <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"> </a>
-       <a href="https://t.me/+bvdUoZbsZkE1OGZk" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram">
-      </a>
+      <a href="mailto:nabta.tex@gmail.com" target="_blank" title="Email"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
+      <a href="https://t.me/+bvdUoZbsZkE1OGZk" target="_blank" title="Telegram"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram"></a>
     </div>
   </footer>
 
@@ -191,6 +472,13 @@
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
       localStorage.setItem("lang", lang);
+
+      document.querySelectorAll('.lang-switch-inline button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase() === lang || btn.textContent === (lang === 'ar' ? 'AR' : 'EN')) {
+          btn.classList.add('active');
+        }
+      });
 
       document.querySelector('input[name="name"]').placeholder = lang === "ar" ? "اسمك" : "Your Name";
       document.querySelector('input[name="email"]').placeholder = lang === "ar" ? "بريدك الإلكتروني" : "Your Email";
